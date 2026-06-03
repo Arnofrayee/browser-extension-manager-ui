@@ -6,6 +6,9 @@
 	font-family: "Noto sans";
 }
 body {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
 	background: linear-gradient(#ebf2fc 0%, #eefbf9 100%);
 	background-size: 100vw 100vh;
 	padding: 20px;
@@ -16,6 +19,13 @@ header {
 	background-color: white;
 	padding: 10px;
 	border-radius: 10px;
+	border: 1px solid #d6e2f5;
+	box-shadow: 0px 2px 3px 0px #d9e5f4;
+}
+main {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
 }
 .logo {
 	display: flex;
@@ -42,6 +52,12 @@ header {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	gap: 20px;
+}
+.extContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 h1 {
 	font-weight: 700;
@@ -52,6 +68,16 @@ h1 {
 .sorting2,
 .sorting3 {
 	appearance: none;
+}
+label:has(.sorting1:checked),
+label:has(.sorting2:checked),
+label:has(.sorting3:checked) {
+	background-color: #c7231a;
+	border: 1px solid #c7231a;
+	color: white;
+}
+label {
+	display: flex;
 	border-radius: 99px;
 	background-color: white;
 	font-weight: 400;
@@ -60,10 +86,79 @@ h1 {
 	border: 1px solid #d6e2f5;
 	padding: 5px 15px;
 }
-.sorting1:checked,
-.sorting2:checked,
-.sorting3:checked {
+.sort {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	gap: 10px;
+}
+.imgTitle {
+	display: flex;
+	flex-direction: row-reverse;
+	gap: 15px;
+}
+.btnStatus {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.extDiv {
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	border: 1px solid #d6e2f5;
+	border-radius: 20px;
+	box-shadow: 0px 1px 5px 1px #c2cee138;
+	box-shadow: 0px 2px 2px 0px #c2cee133;
+	padding: 20px;
+	gap: 20px;
+}
+.extImg {
+	width: 60px;
+	height: 60px;
+	border-radius: 10px;
+}
+.extName {
+	font-weight: 700;
+	font-size: 20px;
+	color: #091540;
+}
+.extDesc {
+	font-weight: 400;
+	font-size: 16px;
+	color: #535868;
+}
+.extRemove {
+	color: #091540;
+	border: solid 1px #c6c6c6;
+	padding: 8px 16px;
+	background-color: white;
+	border-radius: 99px;
+}
+input[type="checkbox"] {
+	appearance: none;
+	height: 20px;
+	width: 36px;
+	position: relative;
+	background-color: #c6c6c6;
+	border-radius: 99px;
+	transition: background-color 0.1s;
+}
+input[type="checkbox"]::after {
+	content: " ";
+	position: absolute;
+	top: 50%;
+	left: 30%;
+	transform: translate(-50%, -50%);
+	height: 16px;
+	width: 16px;
+	border-radius: 99px;
+	background-color: white;
+	transition: left 0.1s;
+}
+input[type="checkbox"]:checked {
 	background-color: #c7231a;
-	border: 1px solid #c7231a;
-	color: white;
+}
+input[type="checkbox"]:checked::after {
+	left: 70%;
 }
