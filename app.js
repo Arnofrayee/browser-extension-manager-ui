@@ -2,10 +2,52 @@ const $allBtn = document.querySelector(".sorting1");
 const $activeBtn = document.querySelector(".sorting2");
 const $inactiveBtn = document.querySelector(".sorting3");
 const $extContainer = document.querySelector(".extContainer");
-
+const url = "http://10.69.4.8:3000/v1/extensions";
 document.addEventListener("DOMContentLoaded", async (e) => {
 	e.preventDefault();
-	const url = "http://10.69.4.8:3000/v1/extensions";
+	const response = await fetch(url, {
+		method: "GET",
+		headers: {
+			Authorization: "Bearer 123",
+		},
+	});
+	const result = await response.json();
+	for (let i = 0; i < result.length; i++) {
+		extension(result[i]);
+		console.log(result[i]);
+	}
+});
+
+$activeBtn.addEventListener("click", async () => {
+	$extContainer.innerHTML = "";
+	const response = await fetch(url + "?isActive=true", {
+		method: "GET",
+		headers: {
+			Authorization: "Bearer 123",
+		},
+	});
+	const result = await response.json();
+	for (let i = 0; i < result.length; i++) {
+		extension(result[i]);
+		console.log(result[i]);
+	}
+});
+$inactiveBtn.addEventListener("click", async () => {
+	$extContainer.innerHTML = "";
+	const response = await fetch(url + "?isActive=false", {
+		method: "GET",
+		headers: {
+			Authorization: "Bearer 123",
+		},
+	});
+	const result = await response.json();
+	for (let i = 0; i < result.length; i++) {
+		extension(result[i]);
+		console.log(result[i]);
+	}
+});
+$allBtn.addEventListener("click", async () => {
+	$extContainer.innerHTML = "";
 	const response = await fetch(url, {
 		method: "GET",
 		headers: {
@@ -62,6 +104,6 @@ function extension(elem) {
 }
 function filter() {
 	$allBtn.addEventListener("click", () => {
-		extension
+		extension;
 	});
-}	
+}

@@ -162,3 +162,18 @@ input[type="checkbox"]:checked {
 input[type="checkbox"]:checked::after {
 	left: 70%;
 }
+@media screen and (min-width: 767px) and (max-width: 1439px) {
+	.extContainer {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+	.extDiv {
+		justify-content: space-between;
+	}
+}
+@media screen and (min-width: 1440px) {
+	.extContainer {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
